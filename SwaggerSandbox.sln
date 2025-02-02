@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerSandbox", "SwaggerSandbox.csproj", "{AEF88A2C-6C7D-443C-A753-9759C7B00AE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEF88A2C-6C7D-443C-A753-9759C7B00AE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF88A2C-6C7D-443C-A753-9759C7B00AE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF88A2C-6C7D-443C-A753-9759C7B00AE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF88A2C-6C7D-443C-A753-9759C7B00AE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
