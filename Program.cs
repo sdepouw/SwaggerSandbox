@@ -29,8 +29,11 @@ app.MapGet("/weatherforecast", () =>
       .ToList();
     return forecast;
   })
-  .WithName("Get a Forecast")
+  .WithName("GetWeatherForecast")
   .WithDescription("Returns data for the current weather forecast")
-  .Produces<List<WeatherForecast>>(200, contentType: "application/json", "application/xml");
+  .Produces<CollectionResponse<WeatherForecast>>(200, contentType: "application/json", "application/xml");
+
+
+app.MapGet("/", () => Results.Redirect("/swagger", true, true)).ExcludeFromDescription();
 
 app.Run();
