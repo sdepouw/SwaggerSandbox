@@ -15,7 +15,8 @@ public record AppSettings(bool AllowPowerUps)
   /// </summary>
   public bool ShouldAddToSwagger(ControllerActionDescriptor descriptor)
   {
-    bool isFireFlowerAction = descriptor is { ControllerName: "Flowers", ActionName: nameof(FlowersController.GetFireFlower) };
+    bool isFireFlowerAction = descriptor is { ControllerTypeInfo.Name: nameof(FlowersController),
+      ActionName: nameof(FlowersController.GetFireFlower) };
     return !isFireFlowerAction || AllowPowerUps;
   }
 }
