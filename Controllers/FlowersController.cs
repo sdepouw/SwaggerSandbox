@@ -30,8 +30,9 @@ public class FlowersController : ControllerBase
   public List<Flower> GetMany() => [new("A", "T", "R", 5), new("A", "T", "R", 5)];
 
   /// <summary>
-  /// Gets a <see cref="FireFlower" />!
+  /// Gets a Fire Flower!
   /// </summary>
+  /// <returns>A powerful flower that lets you shoot fire</returns>
   [HttpGet("Fire")]
   public FireFlower GetFireFlower() => new();
 }

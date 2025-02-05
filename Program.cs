@@ -1,11 +1,22 @@
+using Microsoft.AspNetCore.Mvc.Controllers;
 using SwaggerSandbox;
 using SwaggerSandbox.Models;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-//builder.Services.AddOpenApi();
+AppSettings mySettings = new(false);
+builder.Configuration.GetRequiredSection(nameof(AppSettings)).Bind(mySettings);
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(opts => opts.IncludeXmlComments(typeof(WeatherForecast).Assembly, true));
+builder.Services.AddSwaggerGen(opts =>
+{
+  opts.IncludeXmlComments(typeof(WeatherForecast).Assembly, true);
+  opts.DocInclusionPredicate((_, description) => 
+    // Minimal API endpoints can call ExcludeFromDescription(), so we only care about Controllers here
+    description.ActionDescriptor is not ControllerActionDescriptor controllerDescriptor
+    // We can rely on configuration to determine whether to show/hide a Controller Action
+    || mySettings.ShouldAddToSwagger(controllerDescriptor)
+  );
+});
 builder.Services.AddControllers();
 
 WebApplication app = builder.Build();
