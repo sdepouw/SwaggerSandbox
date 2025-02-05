@@ -1,4 +1,4 @@
-﻿namespace SwaggerSandbox;
+﻿namespace SwaggerSandbox.Models;
 
 /// <summary>
 /// Describes a weather forecast

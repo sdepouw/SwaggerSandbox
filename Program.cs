@@ -1,13 +1,16 @@
 using SwaggerSandbox;
+using SwaggerSandbox.Models;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 //builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(opts => opts.IncludeXmlComments(typeof(WeatherForecast).Assembly));
+builder.Services.AddSwaggerGen(opts => opts.IncludeXmlComments(typeof(WeatherForecast).Assembly, true));
+builder.Services.AddControllers();
 
 WebApplication app = builder.Build();
 
+app.MapControllers();
 app.UseHttpsRedirection();
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -30,9 +33,8 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
   })
   .WithName("GetWeatherForecast")
-  .WithDescription("Returns data for the current weather forecast")
-  .Produces<CollectionResponse<WeatherForecast>>(200, contentType: "application/json", "application/xml");
-
+  .WithDescription("Returns data for the current weather forecast");
+  //.Produces<List<WeatherForecast>>(200, contentType: "application/json", "application/xml");
 
 app.MapGet("/", () => Results.Redirect("/swagger", true, true)).ExcludeFromDescription();
 

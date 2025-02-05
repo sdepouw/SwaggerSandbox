@@ -1,8 +1,20 @@
-@SwaggerSandbox_HostAddress = http://localhost:5166
+@Host = http://localhost:5166
 
-GET {{SwaggerSandbox_HostAddress}}/weatherforecast/
+GET {{Host}}/weatherforecast/
 Accept: application/json
 
 ###
 
-GET {{SwaggerSandbox_HostAddress}}/swagger/
+GET {{Host}}/swagger/
+
+###
+
+GET {{Host}}/flowers
+
+###
+
+GET {{Host}}/flowers/pretty
+
+###
+
+GET {{Host}}/flowers/many
